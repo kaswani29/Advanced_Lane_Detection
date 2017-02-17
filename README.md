@@ -86,7 +86,7 @@ The perspective transform was working as expected by drawing the `src` and `dst`
 
 ####4. Finding Lane pixels and fitting a polyline
 
-Then I used convolutional in 1d to maximize the hot pixels in each window. In this case, it was a summation of window template and vertical slice of the pixel image. The window template is slided across the image from left to right and any overlapping values are summed together, creating the convolved signal. The peak of the convolved signal is where there is the highest overlap of pixels and the most likely position for the lane marker. You can check for the code in `lane_finder.py` between line 153 to 177. I am calculation most stuff in the `tracker.py`. For fitting the polynomial I used the numpy poly fit, fitting the centroid of the windows.
+Then I used convolutional in 1d to maximize the hot pixels in each window. In this case, it was a summation of window template and vertical slice of the pixel image. The window template is slided across the image from left to right and any overlapping values are summed together, creating the convolved signal. The peak of the convolved signal is where there is the highest overlap of pixels and the most likely position for the lane marker. You can check for the code in `lane_finder.py` between line 153 to 177. I am calculating most stuff in the `tracker.py`. For fitting the polynomial I used the numpy poly fit, fitting the centroid of the windows.
 
 ![alt text][image5]
 
@@ -104,7 +104,7 @@ The final video is processed in a different pipeline in file called `video_proce
 
 ###Pipeline (video)
 
-Here's a [link to my video result](./output1_tracked.mp4)
+Here's a [link to my video result](https://youtu.be/8ZJUr4i9dOM)
 
 ---
 
