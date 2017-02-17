@@ -1,5 +1,8 @@
 ##**Advanced Lane Finding Project**
 
+[![Advanced lane detection (video)](./examples/youtube.jpg)](https://www.youtube.com/watch?v=8ZJUr4i9dOM&feature=youtu.be)
+
+
 These are the steps used to detect lane lines in the  project:
 
 * Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.
@@ -23,7 +26,7 @@ These are the steps used to detect lane lines in the  project:
 [image7]: ./examples/distort.jpg "distorted"
 [image8]: ./examples/undist0.jpg "Undistorted"
 [image9]: ./examples/threshold.jpg "Threshold"
-
+[image10]: ./examples/poly_fit.jpg "Poly Fit"
 
 ---
 
@@ -93,6 +96,8 @@ Then I used convolutional in 1d to maximize the hot pixels in each window. In th
 ####5. Radius of curvature and the position of vehicle
 
 Radius of curvature is calculate in lines 225 in my code in `lane_finder.py`. It uses the fourmulae given on page [Radius of curvature](http://www.intmath.com/applications-differentiation/8-radius-curvature.php). The position of vehicle is calculate from the centre in the line 228 to 233 by calculating the postion of centre and its difference from center of the warped image.
+
+![alt text][image10]
 
 ####6. Example of final result
 
