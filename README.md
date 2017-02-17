@@ -1,6 +1,6 @@
 ##**Advanced Lane Finding Project**
 
-[![Advanced lane detection (video)](./examples/youtube.jpg)](https://www.youtube.com/watch?v=8ZJUr4i9dOM&feature=youtu.be)
+[![Advanced lane detection (video)](./examples/you_tube.jpg)](https://www.youtube.com/watch?v=8ZJUr4i9dOM&feature=youtu.be)
 
 
 These are the steps used to detect lane lines in the  project:
