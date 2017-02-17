@@ -1,4 +1,4 @@
-**Advanced Lane Finding Project**
+##**Advanced Lane Finding Project**
 
 These are the steps used to detect lane lines in the  project:
 
@@ -17,8 +17,8 @@ These are the steps used to detect lane lines in the  project:
 [image2]: ./test_images/test1.jpg "Road Transformed"
 [image3]: ./examples/threshold.jpg "Binary Example"
 [image4]: ./examples/warped.jpg "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
+[image5]: ./examples/conv1d.jpg "Fit Visual"
+[image6]: ./examples/output_img.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
 [image7]: ./examples/distort.jpg "distorted"
 [image8]: ./examples/undist0.jpg "Undistorted"
@@ -84,19 +84,19 @@ The perspective transform was working as expected by drawing the `src` and `dst`
 
 ![alt text][image4]
 
-####4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
+####4. Finding Lane pixels and fitting a polyline
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+Then I used convolutional in 1d to maximize the hot pixels in each window. In this case, it was a summation of window template and vertical slice of the pixel image. The window template is slided across the image from left to right and any overlapping values are summed together, creating the convolved signal. The peak of the convolved signal is where there is the highest overlap of pixels and the most likely position for the lane marker. You can check for the code in `lane_finder.py` between line 153 to 177. I am calculation most stuff in the `tracker.py`. For fitting the polynomial I used the numpy poly fit, fitting the centroid of the windows.
 
 ![alt text][image5]
 
-####5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
+####5. Radius of curvature and the position of vehicle
 
-I did this in lines # through # in my code in `my_other_file.py`
+Radius of curvature is calculate in lines 225 in my code in `lane_finder.py`. It uses the fourmulae given on page [Radius of curvature](http://www.intmath.com/applications-differentiation/8-radius-curvature.php). The position of vehicle is calculate from the centre in the line 228 to 233 by calculating the postion of centre and its difference from center of the warped image.
 
-####6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
+####6. Example of final result
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+The final video is processed in a different pipeline in file called `video_processor.py` in the function `process_image()`.  Here is an example of my result on a test image:
 
 ![alt text][image6]
 
@@ -104,15 +104,11 @@ I implemented this step in lines # through # in my code in `yet_another_file.py`
 
 ###Pipeline (video)
 
-####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
-
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./output1_tracked.mp4)
 
 ---
 
 ###Discussion
 
-####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
-
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+The pipeline seems to be doing well for this video but it might fail if light conditions change a lot or if the road becomes lot more curvy instead of having straight path.
 
