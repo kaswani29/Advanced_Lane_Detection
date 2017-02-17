@@ -1,6 +1,6 @@
 ##**Advanced Lane Finding Project**
 
-[![Advanced lane detection (video)](./examples/you_tube.jpg)](https://www.youtube.com/watch?v=8ZJUr4i9dOM&feature=youtu.be)
+[![Advanced lane detection (video)](./examples/youtube.jpg)](https://www.youtube.com/watch?v=8ZJUr4i9dOM&feature=youtu.be)
 
 
 These are the steps used to detect lane lines in the  project:
@@ -20,13 +20,13 @@ These are the steps used to detect lane lines in the  project:
 [image2]: ./test_images/test1.jpg "Road Transformed"
 [image3]: ./examples/threshold.jpg "Binary Example"
 [image4]: ./examples/warped.jpg "Warp Example"
-[image5]: ./examples/conv1d.jpg "Fit Visual"
+[image5]: ./examples/conv1d.png "Fit Visual"
 [image6]: ./examples/output_img.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
 [image7]: ./examples/distort.jpg "distorted"
 [image8]: ./examples/undist0.jpg "Undistorted"
 [image9]: ./examples/threshold.jpg "Threshold"
-[image10]: ./examples/poly_fit.jpg "Poly Fit"
+[image10]: ./examples/poly_fit.png "Poly Fit"
 
 ---
 
