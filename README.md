@@ -1,4 +1,4 @@
-##**Advanced Lane Finding Project**
+**Advanced Lane Finding Project**
 
 [![Advanced lane detection (video)](./examples/youtube.jpg)](https://www.youtube.com/watch?v=8ZJUr4i9dOM&feature=youtu.be)
 
@@ -30,7 +30,7 @@ These are the steps used to detect lane lines in the  project:
 
 ---
 
-####1. Camera Calibration
+#### 1. Camera Calibration
 
 The code for this step is located in "cam_calibrate.py" 
 
@@ -41,9 +41,9 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 Undistorted and Distorted image
 ![alt text][image1]
 
-###Pipeline (single images)
+### Pipeline (single images)
 
-####1. Distortion-corrected image from the training set
+#### 1. Distortion-corrected image from the training set
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
 
 Distorted test image
@@ -53,11 +53,11 @@ Undistorted test image
 ![alt text][image8]
 
 
-####2. Color transforms and Gradients - Combination of Color transforms- Saturation (sthresh=(100, 255) and Value (vthresh=(50,255)) were used with Gradient transformation sobel in x (thresh =(12, 255)) and y =(thresh =(25, 255)) direction to create a thresholded binary image.  (thresholding steps at lines 112 through 116 in `lane_finder.py`).  Here's an example of my output for this step.
+#### 2. Color transforms and Gradients - Combination of Color transforms- Saturation (sthresh=(100, 255) and Value (vthresh=(50,255)) were used with Gradient transformation sobel in x (thresh =(12, 255)) and y =(thresh =(25, 255)) direction to create a thresholded binary image.  (thresholding steps at lines 112 through 116 in `lane_finder.py`).  Here's an example of my output for this step.
 
 ![alt text][image3]
 
-####3. Perspective transform -
+#### 3. Perspective transform -
 
 I have used the cv2 warp perspective function along with the perspective transform to make the transformation. The cv2 warp perspective function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose to hardcode the source and destination points in the following manner:
 
@@ -87,19 +87,19 @@ The perspective transform was working as expected by drawing the `src` and `dst`
 
 ![alt text][image4]
 
-####4. Finding Lane pixels and fitting a polyline
+#### 4. Finding Lane pixels and fitting a polyline
 
 Then I used convolutional in 1d to maximize the hot pixels in each window. In this case, it was a summation of window template and vertical slice of the pixel image. The window template is slided across the image from left to right and any overlapping values are summed together, creating the convolved signal. The peak of the convolved signal is where there is the highest overlap of pixels and the most likely position for the lane marker. You can check for the code in `lane_finder.py` between line 153 to 177. I am calculating most stuff in the `tracker.py`. For fitting the polynomial I used the numpy poly fit, fitting the centroid of the windows.
 
 ![alt text][image5]
 
-####5. Radius of curvature and the position of vehicle
+#### 5. Radius of curvature and the position of vehicle
 
 Radius of curvature is calculate in lines 225 in my code in `lane_finder.py`. It uses the fourmulae given on page [Radius of curvature](http://www.intmath.com/applications-differentiation/8-radius-curvature.php). The position of vehicle is calculate from the centre in the line 228 to 233 by calculating the postion of centre and its difference from center of the warped image.
 
 ![alt text][image10]
 
-####6. Example of final result
+#### 6. Example of final result
 
 The final video is processed in a different pipeline in file called `video_processor.py` in the function `process_image()`.  Here is an example of my result on a test image:
 
@@ -107,13 +107,13 @@ The final video is processed in a different pipeline in file called `video_proce
 
 ---
 
-###Pipeline (video)
+### Pipeline (video)
 
 Here's a [link to my video result](https://youtu.be/8ZJUr4i9dOM)
 
 ---
 
-###Discussion
+### Discussion
 
 The pipeline seems to be doing well for this video but it might fail if light conditions change a lot or if the road becomes lot more curvy instead of having straight path.
 
